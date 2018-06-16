@@ -46,7 +46,7 @@ socket.on('deploygrid', function(grid) {
 
 // update whos online
 socket.on('updateonline', function(users) {
-    $('#onlinenow').html('Users online now: ');
+    $('#onlinenow').html('<strong>Users online now:</strong> ');
     var i = 0;
     users.forEach(function(user) {
         $('#onlinenow').append(user)

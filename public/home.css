@@ -1,12 +1,23 @@
+html {
+    background-color: #25a26e;
+}
+
 body {
-  font-size: 1.0rem;
-  width: 800px;
-  max-width: 90%;
-  margin: 1rem auto;
-  border: 0.5rem solid black;
-  font-family: source sans pro;
+    font-size: 1.0rem;
+    width: 800px;
+    max-width: 90%;
+    margin: 1rem auto;
+    border: 0.5rem solid black;
+    font-family: source sans pro;
+    background-color: #f6ffa1;
 }
 
 .container {
     margin-bottom: 1.0rem;
+    margin-top: 1.0rem;
+}
+
+button {
+    border-radius: 0.5rem;
+    border: 0.1rem solid black;
 }
