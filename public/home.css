@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     width: 800px;
     max-width: 95%;
     margin: 1rem auto;
@@ -21,4 +21,10 @@ button {
     border-radius: 0.5rem;
     border: 0.1rem solid black;
     background-color: #f0f0f0;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 0.8rem;
+  }
 }

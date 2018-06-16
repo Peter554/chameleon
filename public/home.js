@@ -66,12 +66,12 @@ socket.on("giveassigment", function(args){
     if (username == camelyonName) {
         $("#role").html("You are the Camelon!");
     } else {
-        $("#role").html("The word is: " + word);
+        $("#role").html("The word is: " + firstLetterUpper(word));
     }
 })
 
 $("#hide-sensitive").click(function(){
-    $(".sensitive").toggle();
+    $("#role").toggle();
 })
 
 // first letter to upper case
