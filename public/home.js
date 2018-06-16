@@ -6,6 +6,7 @@ var socket = io();
 // client side username
 var username;
 
+// hide the game at the start - should give a username first
 $("#game").hide();
 
 // sign up
@@ -16,7 +17,7 @@ $("#join").click(function() {
         console.log("Empty username detected")
         return
     }
-    socket.emit('adduser', username);
+    socket.emit('requestuser', username);
 })
 
 // accept user
@@ -39,7 +40,8 @@ $('#assign').click(function() {
 
 // deploy a grid
 socket.on('deploygrid', function(grid) {
-    for (var i = 0; i < 12; i++) {
+    grid = shuffleArray(grid);
+    for (var i = 0; i < grid.length; i++) {
         $('.grid-item').eq(i).html(firstLetterUpper(grid[i]));
     }
 })
@@ -58,7 +60,7 @@ socket.on('updateonline', function(users) {
 })
 
 // show assignment
-socket.on("giveassigment", function(args){
+socket.on("giveassigment", function(args) {
     var word = args[0];
     var camelyonName = args[1];
     console.log("The word is " + word);
@@ -70,11 +72,29 @@ socket.on("giveassigment", function(args){
     }
 })
 
-$("#hide-sensitive").click(function(){
+// toggle the sensitive data - the role
+$("#hide-sensitive").click(function() {
     $("#role").toggle();
 })
 
 // first letter to upper case
 function firstLetterUpper(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// shuffle array
+function shuffleArray(array) {
+    var new_array = [];
+    var initial_length = array.length;
+    for (var i = 0; i < initial_length; i++) {
+        var index = randomChoice(array.length)
+        new_array.push(array[index])
+        array.splice(index, 1);
+    }
+    return new_array
+}
+
+// random integer choice from 0:N-1
+function randomChoice(N) {
+    return Math.floor(Math.random() * N);
 }

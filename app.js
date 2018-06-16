@@ -126,7 +126,7 @@ io.on('connection', function(socket) {
     })
 
     // adduser event
-    socket.on("adduser", function(username) {
+    socket.on("requestuser", function(username) {
         this_user = username;
         users.push(username)
         io.emit("acceptuser")
