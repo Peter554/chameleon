@@ -3,9 +3,9 @@ html {
 }
 
 body {
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     width: 800px;
-    max-width: 90%;
+    max-width: 95%;
     margin: 1rem auto;
     border: 0.5rem solid black;
     font-family: source sans pro;
@@ -20,4 +20,5 @@ body {
 button {
     border-radius: 0.5rem;
     border: 0.1rem solid black;
+    background-color: #f0f0f0;
 }
