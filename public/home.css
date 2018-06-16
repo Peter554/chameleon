@@ -6,3 +6,7 @@ body {
   border: 0.5rem solid black;
   font-family: source sans pro;
 }
+
+.container {
+    margin-bottom: 1.0rem;
+}

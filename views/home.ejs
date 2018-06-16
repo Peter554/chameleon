@@ -8,10 +8,10 @@
 
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <!-- fonts -->
+    <!-- fonts css -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,700" rel="stylesheet">
     <!-- my css -->
-    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
@@ -20,46 +20,64 @@
 
         <h1>Camelyon</h1>
 
-        <div class="row controls">
+        <hr>
+
+        <div id="signup">
+            <input type="text" id="username" placeholder="Enter a username">
+            <button type="button" id="join">Join game</button>
+        </div>
+
+        <div id="game">
+
+
+            <div class="row controls">
+                <div class="col-6"><button id="reset">Reset grid</button></div>
+                <div class="col-6"><button id="assign">Assign roles</button></div>
+            </div>
+
+            <hr>
+
+
+            <div class="row users-online">
+                <div class="col-12" id="onlinenow"></div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-12" id="role">Role unassigned</div>
+            </div>
+
+            <hr>
+
+            <div class="row grid">
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+                <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
+            </div>
 
         </div>
 
-        <div class="row grid">
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-            <div class="col-md-2 col-sm-3 col-4 grid-item"></div>
-        </div>
 
     </div>
 
-
+    <!-- client side socket js -->
+    <script src="/socket.io/socket.io.js"></script>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- bootstrap js -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <!-- my js -->
-    <script src="/home.js"></script>
+    <script src="home.js"></script>
 
 </body>
 
