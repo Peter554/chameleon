@@ -30,6 +30,7 @@ socket.on("acceptuser", function() {
 $('#reset').click(function() {
     console.log("A user clicked reset")
     socket.emit('reset')
+    $("#role").html("Role unassigned");
 })
 
 // assign roles
