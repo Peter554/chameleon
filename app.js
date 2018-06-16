@@ -37,6 +37,36 @@ var grids = [
         "lisbon",
         "moscow",
         "stockholm"
+    ],
+    // food
+    [
+        "curry",
+        "chips",
+        "salad",
+        "fish",
+        "chicken",
+        "sausage",
+        "orange",
+        "mango",
+        "leek",
+        "tomato",
+        "pepper",
+        "chilli"
+    ],
+    // music
+    [
+        "rock",
+        "pop",
+        "country",
+        "jazz",
+        "dance",
+        "rap",
+        "metal",
+        "folk",
+        "classical",
+        "drums",
+        "vocal",
+        "reggae"
     ]
 ]
 

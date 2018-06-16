@@ -40,7 +40,7 @@ $('#assign').click(function() {
 // deploy a grid
 socket.on('deploygrid', function(grid) {
     for (var i = 0; i < 12; i++) {
-        $('.grid-item').eq(i).html(grid[i]);
+        $('.grid-item').eq(i).html(firstLetterUpper(grid[i]));
     }
 })
 
@@ -69,3 +69,12 @@ socket.on("giveassigment", function(args){
         $("#role").html("The word is: " + word);
     }
 })
+
+$("#hide-sensitive").click(function(){
+    $(".sensitive").toggle();
+})
+
+// first letter to upper case
+function firstLetterUpper(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
