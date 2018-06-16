@@ -30,7 +30,6 @@ socket.on("acceptuser", function() {
 $('#reset').click(function() {
     console.log("A user clicked reset")
     socket.emit('reset')
-    $("#role").html("Role unassigned");
 })
 
 // assign roles
@@ -45,6 +44,7 @@ socket.on('deploygrid', function(grid) {
     for (var i = 0; i < grid.length; i++) {
         $('.grid-item').eq(i).html(firstLetterUpper(grid[i]));
     }
+    $("#role").html("Role unassigned");
 })
 
 // update whos online
