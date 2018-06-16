@@ -114,7 +114,7 @@ app.get("/", function(req, res) {
 
 io.on('connection', function(socket) {
     console.log("A user connected.")
-    io.emit('deploygrid', active_grid)
+    socket.emit('deploygrid', active_grid)
 
     var this_user;
 

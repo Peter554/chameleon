@@ -67,7 +67,7 @@ socket.on("giveassigment", function(args) {
     console.log("The word is " + word);
     console.log("The Camelyon is " + camelyonName);
     if (username == camelyonName) {
-        $("#role").html("You are the Camelon!");
+        $("#role").html("You are the Camelyon!");
     } else {
         $("#role").html("The word is: " + firstLetterUpper(word));
     }
