@@ -18,7 +18,14 @@ body {
 }
 
 h1 {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.6rem;
     font-family: 'Permanent Marker', cursive;
+}
+
+#logo {
+    height: 1.8rem;
 }
 
 .container {
