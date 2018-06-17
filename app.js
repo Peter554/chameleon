@@ -3,77 +3,11 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-// =====
-// grids
-// =====
-
-var grids = [
-    // colors
-    [
-        "red",
-        "blue",
-        "green",
-        "yellow",
-        "black",
-        "white",
-        "orange",
-        "pink",
-        "brown",
-        "purple",
-        "gray",
-        "gold"
-    ],
-    // cities
-    [
-        "london",
-        "tokyo",
-        "paris",
-        "athens",
-        "rome",
-        "washington",
-        "berlin",
-        "bejing",
-        "madrid",
-        "lisbon",
-        "moscow",
-        "stockholm"
-    ],
-    // food
-    [
-        "curry",
-        "chips",
-        "salad",
-        "fish",
-        "chicken",
-        "sausage",
-        "orange",
-        "mango",
-        "leek",
-        "tomato",
-        "pepper",
-        "chilli"
-    ],
-    // music
-    [
-        "rock",
-        "pop",
-        "country",
-        "jazz",
-        "dance",
-        "rap",
-        "metal",
-        "folk",
-        "classical",
-        "drums",
-        "vocal",
-        "reggae"
-    ]
-]
-
 // ======
 // globals
 // ======
 
+var grids = fetchGrids();
 const NUMBER_OF_GRIDS = grids.length;
 var active_grid = grids[randomChoice(NUMBER_OF_GRIDS)];
 var users = [];
@@ -140,7 +74,7 @@ io.on('connection', function(socket) {
     })
 
     // assign roles event
-    socket.on("assign", function(){
+    socket.on("assign", function() {
         var chameleonIndex = randomChoice(users.length);
         var chameleonName = users[chameleonIndex];
         var wordIndex = randomChoice(12);
@@ -156,3 +90,72 @@ io.on('connection', function(socket) {
 server.listen(port, function() {
     console.log("Serving on port " + port);
 });
+
+// =====
+// grids
+// =====
+
+function fetchGrids() {
+    return [
+        // colors
+        [
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "black",
+            "white",
+            "orange",
+            "pink",
+            "brown",
+            "purple",
+            "gray",
+            "gold"
+        ],
+        // cities
+        [
+            "london",
+            "tokyo",
+            "paris",
+            "athens",
+            "rome",
+            "washington",
+            "berlin",
+            "bejing",
+            "madrid",
+            "lisbon",
+            "moscow",
+            "stockholm"
+        ],
+        // food
+        [
+            "curry",
+            "chips",
+            "salad",
+            "fish",
+            "chicken",
+            "sausage",
+            "orange",
+            "mango",
+            "leek",
+            "tomato",
+            "pepper",
+            "chilli"
+        ],
+        // music
+        [
+            "rock",
+            "pop",
+            "country",
+            "jazz",
+            "dance",
+            "rap",
+            "metal",
+            "folk",
+            "classical",
+            "drums",
+            "vocal",
+            "reggae"
+        ]
+    ]
+}
