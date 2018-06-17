@@ -1,4 +1,4 @@
 # Chameleon
 
-- [](http://chameleon554.herokuapp.com/)
-- [](https://dashboard.heroku.com/apps/chameleon554)
+- [Heroku app](http://chameleon554.herokuapp.com/).
+- [Dashboard](https://dashboard.heroku.com/apps/chameleon554).
