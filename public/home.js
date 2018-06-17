@@ -41,6 +41,7 @@ $('#reset').click(function() {
 $('#assign').click(function() {
     console.log("A user clicked assign")
     socket.emit("assign")
+    $("#role").show();
 })
 
 // deploy a grid
