@@ -257,6 +257,69 @@ function fetchGrids() {
             "Charles Xavier",
             "Ant man",
             "Luke Cage"
+        ],
+        // disney
+        [
+            "Cinderella",
+            "Belle",
+            "Snow White",
+            "Ariel",
+            "Mulan",
+            "Jasmine",
+            "Pocahontas",
+            "Mickey Mouse",
+            "Donald Duck",
+            "Pluto",
+            "Bambi",
+            "Peter Pan",
+            "Captain Hook",
+            "Baloo",
+            "Winnie the Pooh",
+            "Aladdin",
+            "Hercules",
+            "Tarzan"
+        ],
+        // sea cratures
+        [
+            "Starfish",
+            "Shark",
+            "Whale",
+            "Dolphin",
+            "Cod",
+            "Jellyfish",
+            "Seahorse",
+            "Puffer fish",
+            "Orka",
+            "Coral",
+            "Oysters",
+            "Mussels",
+            "Octopus",
+            "Kraken",
+            "Turtle",
+            "Seal",
+            "Sea cucumber",
+            "Sting ray"
+        ],
+        // sports
+        [
+            "Football",
+            "Rugby",
+            "Athletics",
+            "Swimming",
+            "Hockey",
+            "Tennis",
+            "Badminton",
+            "Golf",
+            "Squash",
+            "Gymnastics",
+            "Trampolining",
+            "Cycling",
+            "Volleyball",
+            "Cricket",
+            "Baseball",
+            "Basketball",
+            "Skiing",
+            "Sailing"
         ]
     ]
 }
