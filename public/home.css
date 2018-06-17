@@ -40,10 +40,20 @@ input {
     border-radius: 0.5rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     body {
         font-size: 0.8rem;
     }
+}
+
+#join {
+    margin-top: 0.5rem;
+    height: 1.5em;
+}
+
+#username {
+    text-align: center;
+    height: 1.5em;
 }
 
 .grid-item {
