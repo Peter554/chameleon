@@ -70,7 +70,7 @@ io.on('connection', function(socket) {
             return;
         }
         users.push(username)
-        io.emit("acceptuser")
+        socket.emit("acceptuser")
         io.emit("updateonline", users)
     })
 
