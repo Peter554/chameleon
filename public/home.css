@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    font-size: 0.8rem;
     width: 800px;
     max-width: 95%;
     margin: 1rem auto;
@@ -17,6 +18,14 @@ body {
     margin-top: 0.5rem;
 }
 
+.col-6 {
+    padding: 0.2rem;
+}
+
+.minipad {
+    padding: 0.2rem;
+}
+
 h1 {
     display: inline-block;
     margin-right: 0.5rem;
@@ -28,22 +37,30 @@ h1 {
     height: 1.8rem;
 }
 
+#roleholder {
+    text-align: center;
+}
+
+#onlinenow {
+    text-align: center;
+}
+
 .container {
     margin-bottom: 1.0rem;
     margin-top: 1.0rem;
 }
 
 button {
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
     border: 0.1rem solid black;
-    width: 95%;
+    width: 100%;
     background-color: #f0f0f0;
 }
 
 input {
-    width: 95%;
+    width: 100%;
     border: 0.1rem solid black;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
 }
 
 #join {
@@ -59,7 +76,7 @@ input {
 .grid-item {
     text-align: center;
     margin: 0.1rem;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
     border: 0.1rem solid black;
     background-color: white;
 }
