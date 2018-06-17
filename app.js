@@ -77,7 +77,7 @@ io.on('connection', function(socket) {
     socket.on("assign", function() {
         var chameleonIndex = randomChoice(users.length);
         var chameleonName = users[chameleonIndex];
-        var wordIndex = randomChoice(12);
+        var wordIndex = randomChoice(active_grid.length);
         var word = active_grid[wordIndex];
         io.emit("giveassigment", [word, chameleonName]);
     })
@@ -96,6 +96,7 @@ server.listen(port, function() {
 // =====
 
 function fetchGrids() {
+    // don't miss commas between subarrays!
     return [
         // colors
         [
@@ -110,22 +111,13 @@ function fetchGrids() {
             "brown",
             "purple",
             "gray",
-            "gold"
-        ],
-        // cities
-        [
-            "london",
-            "tokyo",
-            "paris",
-            "athens",
-            "rome",
-            "washington",
-            "berlin",
-            "bejing",
-            "madrid",
-            "lisbon",
-            "moscow",
-            "stockholm"
+            "gold",
+            "silver",
+            "bronze",
+            "rainbow",
+            "cream",
+            "turquoise",
+            "lilac"
         ],
         // food
         [
@@ -140,22 +132,13 @@ function fetchGrids() {
             "leek",
             "tomato",
             "pepper",
-            "chilli"
-        ],
-        // music
-        [
-            "rock",
-            "pop",
-            "country",
-            "jazz",
-            "dance",
-            "rap",
-            "metal",
-            "folk",
-            "classical",
-            "drums",
-            "vocal",
-            "reggae"
+            "chilli",
+            "beef",
+            "pizza",
+            "pasta",
+            "ice cream",
+            "chocolate",
+            "strawberries"
         ]
     ]
 }
