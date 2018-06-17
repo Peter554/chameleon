@@ -12,6 +12,12 @@ body {
     background-color: #f7ff00;
 }
 
+#warn {
+    color: red;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
 h1 {
     font-family: 'Permanent Marker', cursive;
 }

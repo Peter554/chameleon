@@ -9,17 +9,19 @@ var io = require("socket.io")(server);
 
 var grids = fetchGrids();
 const NUMBER_OF_GRIDS = grids.length;
-var active_grid = grids[randomChoice(NUMBER_OF_GRIDS)];
+var activeGrid = grids[randomChoice(NUMBER_OF_GRIDS)];
 var users = [];
 
 // =========
 // functions
 // =========
 
+// random integer choice from 0:N-1
 function randomChoice(N) {
     return Math.floor(Math.random() * N);
 }
 
+// remove a user from the users list
 function removeUser(username) {
     var index = users.indexOf(username);
     if (index > -1) {
@@ -48,20 +50,25 @@ app.get("/", function(req, res) {
 
 io.on('connection', function(socket) {
     console.log("A user connected.")
-    socket.emit('deploygrid', active_grid)
+    socket.emit('deploygrid', activeGrid)
 
-    var this_user;
+    var thisUser;
 
     // disconnect method
     socket.on('disconnect', function() {
         console.log("A user disconnected");
-        removeUser(this_user);
+        removeUser(thisUser);
         io.emit("updateonline", users)
     })
 
     // adduser event
     socket.on("requestuser", function(username) {
-        this_user = username;
+        thisUser = username;
+        var index = users.indexOf(username);
+        if (index > -1) {
+            socket.emit("usertaken")
+            return;
+        }
         users.push(username)
         io.emit("acceptuser")
         io.emit("updateonline", users)
@@ -69,16 +76,16 @@ io.on('connection', function(socket) {
 
     // reset event
     socket.on('reset', function() {
-        active_grid = grids[randomChoice(NUMBER_OF_GRIDS)];
-        io.emit('deploygrid', active_grid)
+        activeGrid = grids[randomChoice(NUMBER_OF_GRIDS)];
+        io.emit('deploygrid', activeGrid)
     })
 
     // assign roles event
     socket.on("assign", function() {
         var chameleonIndex = randomChoice(users.length);
         var chameleonName = users[chameleonIndex];
-        var wordIndex = randomChoice(active_grid.length);
-        var word = active_grid[wordIndex];
+        var wordIndex = randomChoice(activeGrid.length);
+        var word = activeGrid[wordIndex];
         io.emit("giveassigment", [word, chameleonName]);
     })
 });

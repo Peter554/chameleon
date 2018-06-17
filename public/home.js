@@ -6,16 +6,21 @@ var socket = io();
 // client side username
 var username;
 
+// hide the warning bar at the start
+$("#warn").hide();
+
 // hide the game at the start - should give a username first
 $("#game").hide();
 
-// sign up
+// request user
 $("#join").click(function() {
     username = $('#username').val();
     console.log(username);
     if (username.length == 0) {
-        console.log("Empty username detected")
-        return
+        console.log("Empty username detected");
+        $("#warn").show();
+        $("#warn").html("Empty username")
+        return;
     }
     socket.emit('requestuser', username);
 })
@@ -64,8 +69,6 @@ socket.on('updateonline', function(users) {
 socket.on("giveassigment", function(args) {
     var word = args[0];
     var chameleonName = args[1];
-    console.log("The word is " + word);
-    console.log("The Chameleon is " + chameleonName);
     if (username == chameleonName) {
         $("#role").html("You are the Chameleon!");
     } else {
@@ -85,17 +88,23 @@ function firstLetterUpper(string) {
 
 // shuffle array
 function shuffleArray(array) {
-    var new_array = [];
+    var newArray = [];
     var initial_length = array.length;
     for (var i = 0; i < initial_length; i++) {
         var index = randomChoice(array.length)
-        new_array.push(array[index])
+        newArray.push(array[index])
         array.splice(index, 1);
     }
-    return new_array
+    return newArray
 }
 
 // random integer choice from 0:N-1
 function randomChoice(N) {
     return Math.floor(Math.random() * N);
 }
+
+// user taken event
+socket.on("usertaken", function(){
+    $("#warn").show();
+    $("#warn").html("Username taken")
+})
