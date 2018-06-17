@@ -48,4 +48,8 @@ input {
 
 .grid-item {
     text-align: center;
+    margin: 0.1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid black;
+    background-color: white;
 }
