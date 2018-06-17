@@ -109,3 +109,15 @@ socket.on("usertaken", function(){
     $("#warn").show();
     $("#warn").html("Username taken")
 })
+
+// boot all users
+$("#bootall").click(function(){
+    socket.emit("bootallusers");
+})
+
+// reset user event
+socket.on("resetuser", function(){
+    $("#signup").show();
+    $("#warn").hide();
+    $("#game").hide();
+})

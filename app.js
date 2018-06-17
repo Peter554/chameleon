@@ -88,6 +88,12 @@ io.on('connection', function(socket) {
         var word = activeGrid[wordIndex];
         io.emit("giveassigment", [word, chameleonName]);
     })
+
+    // boot all event
+    socket.on("bootallusers", function() {
+        users = [];
+        io.emit("resetuser")
+    })
 });
 
 // ======
