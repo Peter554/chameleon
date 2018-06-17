@@ -48,7 +48,7 @@ $('#assign').click(function() {
 socket.on('deploygrid', function(grid) {
     grid = shuffleArray(grid);
     for (var i = 0; i < grid.length; i++) {
-        $('.grid-item').eq(i).html(firstLetterUpper(grid[i]));
+        $('.grid-item').eq(i).html(grid[i]);
     }
     $("#role").html("Role unassigned");
 })
@@ -73,7 +73,7 @@ socket.on("giveassigment", function(args) {
     if (username == chameleonName) {
         $("#role").html("You are the Chameleon!");
     } else {
-        $("#role").html("The word is: " + firstLetterUpper(word));
+        $("#role").html("The word is: " + word);
     }
 })
 
@@ -82,10 +82,10 @@ $("#hide-sensitive").click(function() {
     $("#role").toggle();
 })
 
-// first letter to upper case
-function firstLetterUpper(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+// // first letter to upper case
+// function firstLetterUpper(string) {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+// }
 
 // shuffle array
 function shuffleArray(array) {
