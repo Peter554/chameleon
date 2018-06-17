@@ -152,6 +152,69 @@ function fetchGrids() {
             "ice cream",
             "chocolate",
             "strawberries"
+        ],
+        // capitals
+        [
+            "london",
+            "moscow",
+            "paris",
+            "berlin",
+            "madrid",
+            "rome",
+            "cairo",
+            "helsinki",
+            "stockholm",
+            "oslo",
+            "washington",
+            "mexico city",
+            "bejing",
+            "tokyo",
+            "seoul",
+            "vienna",
+            "nairobi",
+            "marrakesh"
+        ],
+        // rooms
+        [
+            "hallway",
+            "kitchen",
+            "dining room",
+            "sitting room",
+            "bathroom",
+            "bedroom",
+            "cellar",
+            "attic",
+            "dungeon",
+            "conservatory",
+            "shed",
+            "study",
+            "garage",
+            "music room",
+            "workshop",
+            "greenhouse",
+            "gym",
+            "studio"
+        ],
+        // pets
+        [
+            "dog",
+            "cat",
+            "parrot",
+            "rabbit",
+            "hamster",
+            "guinea pig",
+            "goldfish",
+            "snake",
+            "lizard",
+            "horse",
+            "alpaca",
+            "frog",
+            "rat",
+            "crab",
+            "budgie",
+            "spider",
+            "donkey",
+            "owl"
         ]
     ]
 }
