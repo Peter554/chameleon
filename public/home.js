@@ -63,11 +63,11 @@ socket.on('updateonline', function(users) {
 // show assignment
 socket.on("giveassigment", function(args) {
     var word = args[0];
-    var camelyonName = args[1];
+    var chameleonName = args[1];
     console.log("The word is " + word);
-    console.log("The Camelyon is " + camelyonName);
-    if (username == camelyonName) {
-        $("#role").html("You are the Camelyon!");
+    console.log("The Chameleon is " + chameleonName);
+    if (username == chameleonName) {
+        $("#role").html("You are the Chameleon!");
     } else {
         $("#role").html("The word is: " + firstLetterUpper(word));
     }

@@ -141,11 +141,11 @@ io.on('connection', function(socket) {
 
     // assign roles event
     socket.on("assign", function(){
-        var camelyonIndex = randomChoice(users.length);
-        var camelyonName = users[camelyonIndex];
+        var chameleonIndex = randomChoice(users.length);
+        var chameleonName = users[chameleonIndex];
         var wordIndex = randomChoice(12);
         var word = active_grid[wordIndex];
-        io.emit("giveassigment", [word, camelyonName]);
+        io.emit("giveassigment", [word, chameleonName]);
     })
 });
 
