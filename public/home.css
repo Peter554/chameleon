@@ -1,5 +1,5 @@
 html {
-    background-color: #004dff;
+    background-color: #8800ff;
 }
 
 body {
@@ -8,8 +8,12 @@ body {
     max-width: 95%;
     margin: 1rem auto;
     border: 0.5rem solid black;
-    font-family: source sans pro;
-    background-color: #ccff00;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7ff00;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
 }
 
 .container {
@@ -20,11 +24,21 @@ body {
 button {
     border-radius: 0.5rem;
     border: 0.1rem solid black;
-    background-color: #f0f0f0;
+    width: 95%;
+}
+
+input {
+    width: 95%;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
 }
 
 @media screen and (max-width: 800px) {
-  body {
-    font-size: 0.8rem;
-  }
+    body {
+        font-size: 0.8rem;
+    }
+}
+
+.grid-item {
+    text-align: center;
 }
