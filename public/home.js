@@ -55,13 +55,53 @@ $('#leave').click(function() {
     reset();
 })
 
+// change the grid
+$('#change-grid').click(function() {
+    console.log("A user clicked change grid in room " + room)
+    socket.emit('changegrid')
+})
+
+// assign roles
+$('#assign-roles').click(function() {
+    console.log("A user clicked assign roles in room " + room)
+    socket.emit("assignroles")
+    $("#role").show();
+})
+
+// hide role
+$("#hide-role").click(function() {
+    $("#role").toggle();
+})
+
+// deploy grid
+socket.on('deploygrid', function(grid) {
+    grid = shuffleArray(grid);
+    for (var i = 0; i < grid.length; i++) {
+        $('.grid-item').eq(i).html(grid[i]);
+    }
+    $("#role").html("Role unassigned");
+    $("#role").show();
+})
+
+// show assignment
+socket.on("giveassigment", function(args) {
+    var word = args[0];
+    var chameleonName = args[1];
+    if (username == chameleonName) {
+        $("#role").html("You are the Chameleon!");
+    } else {
+        $("#role").html("The word is: " + word);
+    }
+})
+
+
 // =========
 // functions
 // =========
 
 function reset(){
-    username = '';
-    room = '';
+    username = undefined;
+    room = undefined;
     $('#login-div').show();
     $('#warn').hide();
     $('#game-div').hide();
@@ -90,4 +130,22 @@ function showUsers(users){
             $('#user-indicator').append(", ")
         }
 })
+}
+
+// shuffle array
+function shuffleArray(array) {
+    var newArray = [];
+    var initial_length = array.length;
+    for (var i = 0; i < initial_length; i++) {
+        var index = randomChoice(array.length)
+        newArray.push(array[index])
+        array.splice(index, 1);
+    }
+    return newArray
+}
+
+
+// random integer choice from 0:N-1
+function randomChoice(N) {
+    return Math.floor(Math.random() * N);
 }

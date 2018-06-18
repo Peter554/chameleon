@@ -9,9 +9,9 @@ var io = require("socket.io")(server);
 
 var grids = fetchGrids();
 const NUMBER_OF_GRIDS = grids.length;
-var activeGrid = grids[randomChoice(NUMBER_OF_GRIDS)];
 var users = [];
 var rooms = {};
+var active_grids = {};
 
 // =========
 // functions
@@ -32,11 +32,15 @@ function removeUser(username, array) {
 
 function availableUser(username) {
   var index = users.indexOf(username)
-  if (index > -1){
+  if (index > -1) {
     return false
   } else {
     return true
   }
+}
+
+function randomGrid() {
+  return grids[randomChoice(grids.length)]
 }
 
 // =============
@@ -67,39 +71,39 @@ io.on('connection', function(socket) {
 
   // disconnect
   socket.on("disconnect", function() {
-    if ((username != undefined) && (room != undefined)){
-      removeUser(username, users)
-      removeUser(username, rooms[room])
-      if (rooms[room].length == 0){
-        delete rooms[room];
-      }
-      console.log('\n' + username + ' requested disconnect.')
-      console.log(users)
-      console.log(rooms)
-      io.in(room).emit('updateonline', rooms[room])
+    if (username != undefined && room != undefined) {
+      exit();
     }
   })
 
-  // leaveroom
+  // leaveroom event
   socket.on('leaveroom', function() {
+    exit();
+  })
+
+  // exit room
+  function exit() {
     removeUser(username, users)
     removeUser(username, rooms[room])
-    if (rooms[room].length == 0){
+    if (rooms[room].length == 0) {
       delete rooms[room];
+      delete active_grids[room];
     }
     console.log('\n' + username + ' requested to leave room ' + room)
     console.log(users)
     console.log(rooms)
-    io.in(room).emit('updateonline', rooms[room])
-    username = '';
-    room = '';
-  })
+    socket.to(room).emit('updateonline', rooms[room])
+    socket.leave(room)
+    username = undefined;
+    room = undefined;
+  }
 
+  // requestuser
   socket.on('requestuser', function(args) {
     var requested_username = args[0];
     var requested_room = args[1];
     console.log("\nA user requested sign up: " + requested_username)
-    if (!availableUser(requested_username)){
+    if (!availableUser(requested_username)) {
       console.log('Username taken.')
       socket.emit('usernametaken')
       return;
@@ -107,8 +111,9 @@ io.on('connection', function(socket) {
     username = requested_username;
     room = requested_room;
     users.push(username);
-    if (rooms[room] == undefined){
+    if (rooms[room] == undefined) {
       rooms[room] = [username]
+      active_grids[room] = randomGrid();
     } else {
       rooms[room].push(username)
     }
@@ -117,9 +122,23 @@ io.on('connection', function(socket) {
     socket.join(room);
     socket.emit('acceptuser', [username, room])
     io.in(room).emit('updateonline', rooms[room])
+    socket.emit('deploygrid', active_grids[room])
   })
 
+  // changegrid
+  socket.on('changegrid', function() {
+    active_grids[room] = randomGrid();
+    io.in(room).emit('deploygrid', active_grids[room]);
+  })
 
+  // assign roles event
+  socket.on("assignroles", function() {
+    var chameleonIndex = randomChoice(rooms[room].length);
+    var chameleonName = rooms[room][chameleonIndex];
+    var wordIndex = randomChoice(active_grids[room].length);
+    var word = active_grids[room][wordIndex];
+    io.in(room).emit("giveassigment", [word, chameleonName]);
+  })
 
 });
 
