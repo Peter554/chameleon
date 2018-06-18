@@ -100,7 +100,7 @@ io.on('connection', function(socket) {
     room = undefined;
   }
 
-  // requestuser
+  // requestuser event
   socket.on('requestuser', function(args) {
     var requested_username = args[0];
     var requested_room = args[1];
@@ -127,7 +127,7 @@ io.on('connection', function(socket) {
     socket.emit('deploygrid', active_grids[room])
   })
 
-  // changegrid
+  // changegrid event
   socket.on('changegrid', function() {
     active_grids[room] = randomGrid();
     io.in(room).emit('deploygrid', active_grids[room]);
@@ -452,6 +452,69 @@ function fetchGrids() {
       "Butcher",
       "Doctor",
       "Film director"
+    ],
+    // civilizations
+    [
+      'Romans',
+      'Egyptians',
+      'Mayans',
+      'Mongols',
+      'Aztecs',
+      'Japanese',
+      'Persians',
+      'Greeks',
+      'Turks',
+      'Vikings',
+      'Incas',
+      'Spanish'
+      'Zulu',
+      'Chinese',
+      'Spartans',
+      'Aliens',
+      'Eskimos',
+      'Samurai'
+    ],
+    // tattoos
+    [
+      'Stars',
+      'Angel',
+      'Wings',
+      'Dragon',
+      'Eagle',
+      'Fairy',
+      'Heart',
+      'Skull',
+      'Sword',
+      'Tiger',
+      'Swallows',
+      'Flower',
+      'Butterfly',
+      'Cross',
+      'Owl',
+      'Anchor',
+      'Whale',
+      'Lightning'
+    ],
+    // Geography
+    [
+      'Lake',
+      'Sea',
+      'Valley',
+      'Mountain',
+      'River',
+      'Desert',
+      'Ocean',
+      'Forest',
+      'Jungle',
+      'Island',
+      'Glacier',
+      'Waterfall',
+      'Volcano',
+      'Cave',
+      'Arctic',
+      'Swamp',
+      'Gorge',
+      'Reef'
     ]
   ]
 }
