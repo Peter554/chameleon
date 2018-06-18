@@ -466,7 +466,7 @@ function fetchGrids() {
       'Turks',
       'Vikings',
       'Incas',
-      'Spanish'
+      'Spanish',
       'Zulu',
       'Chinese',
       'Spartans',
