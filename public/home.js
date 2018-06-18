@@ -13,9 +13,9 @@ var room;
 // reset
 reset();
 
-// ======
-// socket
-// ======
+// ===========
+// user signup
+// ===========
 
 // request user and room
 $("#join").click(function() {
@@ -55,6 +55,10 @@ $('#leave').click(function() {
   reset();
 })
 
+// ====
+// grid
+// ====
+
 // change the grid
 $('#change-grid').click(function() {
   console.log("A user clicked change grid in room " + room)
@@ -71,15 +75,14 @@ socket.on('deploygrid', function(grid) {
   $("#role").show();
 })
 
+// =====
+// roles
+// =====
+
 // assign roles
 $('#assign-roles').click(function() {
-  console.log("A user clicked assign roles in room " + room)
+  console.log("A user clicked assign roles in room: " + room)
   socket.emit("assignroles")
-})
-
-// hide role
-$("#hide-role").click(function() {
-  $("#role").toggle();
 })
 
 // show assignment
@@ -92,6 +95,11 @@ socket.on("giveassigment", function(args) {
     $("#role").html("The word is: " + word);
   }
   $("#role").show();
+})
+
+// hide role
+$("#hide-role").click(function() {
+  $("#role").toggle();
 })
 
 
