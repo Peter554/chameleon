@@ -30,6 +30,7 @@ function removeUser(username, array) {
   }
 }
 
+// is a username available?
 function availableUser(username) {
   var index = users.indexOf(username)
   if (index > -1) {
@@ -39,6 +40,7 @@ function availableUser(username) {
   }
 }
 
+// get a random grid
 function randomGrid() {
   return grids[randomChoice(grids.length)]
 }
@@ -85,6 +87,8 @@ io.on('connection', function(socket) {
   function exit() {
     removeUser(username, users)
     removeUser(username, rooms[room])
+    socket.to(room).emit('updateonline', rooms[room])
+    socket.leave(room)
     if (rooms[room].length == 0) {
       delete rooms[room];
       delete active_grids[room];
@@ -92,8 +96,6 @@ io.on('connection', function(socket) {
     console.log('\n' + username + ' requested to leave room ' + room)
     console.log(users)
     console.log(rooms)
-    socket.to(room).emit('updateonline', rooms[room])
-    socket.leave(room)
     username = undefined;
     room = undefined;
   }
