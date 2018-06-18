@@ -5,25 +5,12 @@ html {
 body {
     font-size: 0.8rem;
     width: 800px;
+    color: black;
     max-width: 95%;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     border: 0.5rem solid black;
     font-family: 'Roboto', sans-serif;
     background-color: #f7ff00;
-}
-
-#warn {
-    color: red;
-    font-style: italic;
-    margin-top: 0.5rem;
-}
-
-.col-6 {
-    padding: 0.2rem;
-}
-
-.minipad {
-    padding: 0.2rem;
 }
 
 h1 {
@@ -37,46 +24,42 @@ h1 {
     height: 1.8rem;
 }
 
-#roleholder {
+#title-div {
+    margin-top: 0.5rem;
+}
+
+.col-12 {
+    padding: 0.2rem;
+    border: 0;
+    margin: 0;
     text-align: center;
 }
 
-#onlinenow {
+.col-6 {
+    padding: 0.2rem;
+    border: 0;
+    margin: 0;
     text-align: center;
 }
 
-.container {
-    margin-bottom: 1.0rem;
-    margin-top: 1.0rem;
+.box {
+    padding: 0;
+    margin: 0;
+    border: 0.1rem solid black;
+    border-radius: 0.2rem;
+    width: 100%;
+    text-align: center;
+}
+
+#warn {
+    color: red;
+    font-style: italic;
 }
 
 button {
-    border-radius: 0.2rem;
-    border: 0.1rem solid black;
-    width: 100%;
-    background-color: #f0f0f0;
-}
-
-input {
-    width: 100%;
-    border: 0.1rem solid black;
-    border-radius: 0.2rem;
-}
-
-#join {
-    margin-top: 0.5rem;
-    height: 1.5em;
-}
-
-#username {
-    text-align: center;
-    height: 1.5em;
+    background-color: #d9d9d9;
 }
 
 .grid-item {
-    text-align: center;
-    margin: 0.1rem;
-    border-radius: 0.2rem;
-    border: 0.1rem solid black;
     background-color: white;
 }

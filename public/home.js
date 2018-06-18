@@ -3,121 +3,146 @@
 // important line!!!
 var socket = io();
 
-// client side username
+// ==============
+// client globals
+// ==============
+
 var username;
+var room;
 
-// hide the warning bar at the start
-$("#warn").hide();
+// reset
+reset();
 
-// hide the game at the start - should give a username first
-$("#game").hide();
+// ======
+// socket
+// ======
 
-// request user
+// request user and room
 $("#join").click(function() {
-    username = $('#username').val();
-    console.log(username);
-    if (username.length == 0) {
-        console.log("Empty username detected");
-        $("#warn").show();
-        $("#warn").html("Empty username")
-        return;
-    }
-    socket.emit('requestuser', username);
+  var requested_username = $('#login-name').val();
+  var requested_room = $('#login-room').val();
+  if (isEmpty(requested_username) || isEmpty(requested_room)) {
+    warnEmpty();
+    return;
+  }
+  socket.emit('requestuser', [requested_username, requested_room]);
 })
 
 // accept user
-socket.on("acceptuser", function() {
-    $('#signup').hide();
-    $('#game').show();
+socket.on("acceptuser", function(args) {
+  username = args[0];
+  room = args[1];
+  console.log(room)
+  $('#login-div').hide();
+  $('#game-div').show();
+  $('#room-indicator').html('<strong>You are in room: ' + room + '</strong>');
 })
 
-// reset the grid
-$('#reset').click(function() {
-    console.log("A user clicked reset")
-    socket.emit('reset')
-})
-
-// assign roles
-$('#assign').click(function() {
-    console.log("A user clicked assign")
-    socket.emit("assign")
-    $("#role").show();
-})
-
-// deploy a grid
-socket.on('deploygrid', function(grid) {
-    grid = shuffleArray(grid);
-    for (var i = 0; i < grid.length; i++) {
-        $('.grid-item').eq(i).html(grid[i]);
-    }
-    $("#role").html("Role unassigned");
+// username taken
+socket.on('usernametaken', function() {
+  $("#warn").show();
+  $("#warn").html("Username taken")
 })
 
 // update whos online
 socket.on('updateonline', function(users) {
-    $('#onlinenow').html('<strong>Users online now:</strong> ');
-    var i = 0;
-    users.forEach(function(user) {
-        $('#onlinenow').append(user)
-        i = i + 1;
-        if (i < users.length) {
-            $('#onlinenow').append(", ")
-        }
-    })
+  showUsers(users)
+})
+
+// leave room
+$('#leave').click(function() {
+  socket.emit('leaveroom')
+  reset();
+})
+
+// change the grid
+$('#change-grid').click(function() {
+  console.log("A user clicked change grid in room " + room)
+  socket.emit('changegrid')
+})
+
+// deploy grid
+socket.on('deploygrid', function(grid) {
+  grid = shuffleArray(grid);
+  for (var i = 0; i < grid.length; i++) {
+    $('.grid-item').eq(i).html(grid[i]);
+  }
+  $("#role").html("Role unassigned");
+  $("#role").show();
+})
+
+// assign roles
+$('#assign-roles').click(function() {
+  console.log("A user clicked assign roles in room " + room)
+  socket.emit("assignroles")
+})
+
+// hide role
+$("#hide-role").click(function() {
+  $("#role").toggle();
 })
 
 // show assignment
 socket.on("giveassigment", function(args) {
-    var word = args[0];
-    var chameleonName = args[1];
-    if (username == chameleonName) {
-        $("#role").html("You are the Chameleon!");
-    } else {
-        $("#role").html("The word is: " + word);
+  var word = args[0];
+  var chameleonName = args[1];
+  if (username == chameleonName) {
+    $("#role").html("You are the Chameleon!");
+  } else {
+    $("#role").html("The word is: " + word);
+  }
+  $("#role").show();
+})
+
+
+// =========
+// functions
+// =========
+
+function reset() {
+  username = undefined;
+  room = undefined;
+  $('#login-div').show();
+  $('#warn').hide();
+  $('#game-div').hide();
+}
+
+function isEmpty(string) {
+  if (string.length == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function warnEmpty() {
+  $("#warn").show();
+  $("#warn").html("Empty username or room key")
+}
+
+function showUsers(users) {
+  $('#user-indicator').html('<strong>Users in this room now:</strong> ');
+  var i = 0;
+  users.forEach(function(user) {
+    $('#user-indicator').append(user)
+    i = i + 1;
+    if (i < users.length) {
+      $('#user-indicator').append(", ")
     }
-})
+  })
+}
 
-// toggle the sensitive data - the role
-$("#hide-sensitive").click(function() {
-    $("#role").toggle();
-})
-
-// // first letter to upper case
-// function firstLetterUpper(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-
-// shuffle array
 function shuffleArray(array) {
-    var newArray = [];
-    var initial_length = array.length;
-    for (var i = 0; i < initial_length; i++) {
-        var index = randomChoice(array.length)
-        newArray.push(array[index])
-        array.splice(index, 1);
-    }
-    return newArray
+  var newArray = [];
+  var initial_length = array.length;
+  for (var i = 0; i < initial_length; i++) {
+    var index = randomChoice(array.length)
+    newArray.push(array[index])
+    array.splice(index, 1);
+  }
+  return newArray
 }
 
-// random integer choice from 0:N-1
 function randomChoice(N) {
-    return Math.floor(Math.random() * N);
+  return Math.floor(Math.random() * N);
 }
-
-// user taken event
-socket.on("usertaken", function(){
-    $("#warn").show();
-    $("#warn").html("Username taken")
-})
-
-// boot all users
-$("#bootall").click(function(){
-    socket.emit("bootallusers");
-})
-
-// reset user event
-socket.on("resetuser", function(){
-    $("#signup").show();
-    $("#warn").hide();
-    $("#game").hide();
-})
