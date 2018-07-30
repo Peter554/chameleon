@@ -3,29 +3,36 @@ html {
 }
 
 body {
-    font-size: 0.8rem;
     width: 800px;
     color: black;
     max-width: 95%;
-    margin: 0.5rem auto;
+    padding: 1rem;
+    margin: 1rem auto;
     border: 0.5rem solid black;
     font-family: 'Roboto', sans-serif;
     background-color: #f7ff00;
 }
 
-h1 {
+#title {
     display: inline-block;
     margin-right: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-family: 'Permanent Marker', cursive;
 }
 
 #logo {
-    height: 1.8rem;
+    height: 3rem;
 }
 
 #title-div {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+}
+
+hr {
+    margin: 1rem 0;
+    padding: 0;
+    height: 0;
+    border: 0.05rem solid black;
 }
 
 .col-12 {
@@ -46,8 +53,9 @@ h1 {
     padding: 0;
     margin: 0;
     border: 0.1rem solid black;
-    border-radius: 0.2rem;
+    border-radius: 0.1rem;
     width: 100%;
+    max-width: 30rem;
     text-align: center;
 }
 

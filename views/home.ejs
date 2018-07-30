@@ -2,139 +2,146 @@
 <html lang='en' dir='ltr'>
 
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Chameleon</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Chameleon</title>
+    <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/7m8L7dk.png"/>
 
-  <!-- bootstrap css -->
-  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'>
-  <!-- fonts css -->
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet'>
-  <!-- my css -->
-  <link rel='stylesheet' href='home.css'>
+    <!-- bootstrap css -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'>
+    <!-- fonts css -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet'>
+    <!-- my css -->
+    <link rel='stylesheet' href='/home.css'>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
 
     <div id='title-div' class='row'>
-      <div class='col-12'>
-        <h1>Chameleon</h1>
-        <img src='/chameleon.png' id='logo'>
-      </div>
+        <div class='col-12'>
+            <h1 id="title">Chameleon</h1>
+            <img src='/chameleon.png' id='logo'>
+        </div>
     </div>
 
     <!-- login div -->
     <div id="login-div">
-      <hr>
-      <div class='row'>
+        <hr>
+        <div class='row'>
 
-        <div class='col-12'>
-          <input type='text' placeholder='Enter a player name' id='login-name' class='box'>
-        </div>
-        <div class='col-12'>
-          <input type='text' placeholder='Enter a room key' id='login-room' class='box'>
-        </div>
-        <div class='col-12'>
-          <button id='join' class='box'>Join</button>
-        </div>
-        <div class="col-12" id='warn'></div>
+            <div class='col-12'>
+                <input type='text' placeholder='Enter a player name' id='login-name' class='box'>
+            </div>
+            <div class='col-12'>
+                <input type='text' placeholder='Enter a room key' id='login-room' class='box'>
+            </div>
+            <div class='col-12'>
+                <button id='join' class='box'>Join</button>
+            </div>
+            <div class="col-12" id='warn'></div>
 
-      </div>
+        </div>
     </div>
 
     <!-- game div -->
     <div id='game-div'>
-      <hr>
-      <div class='row'>
-        <div class="col-12" id='room-indicator'></div>
-        <div class="col-12" id='user-indicator'></div>
-        <div class='col-12'>
-          <button id='leave' class='box'>Leave room</button>
+        <hr>
+        <div class='row'>
+            <div class="col-12" id='room-indicator'></div>
+            <div class="col-12" id='user-indicator'></div>
+            <div class='col-12'>
+                <button id='leave' class='box'>Leave room</button>
+            </div>
         </div>
-      </div>
-      <hr>
-      <div class="row controls">
-        <div class="col-6"><button id="change-grid" class='box'>Reset grid</button></div>
-        <div class="col-6"><button id="assign-roles" class='box'>Assign roles</button></div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-6" id="roleholder"><strong id="role">Role unassigned</strong></div>
-        <div class="col-6"><button id="hide-role" class='box'>Toggle</button></div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-6">
-          <div class='box grid-item'></div>
+        <hr>
+        <div class="row controls">
+            <div class="col-6">
+                <button id="change-grid" class='box'>Reset grid</button>
+            </div>
+            <div class="col-6">
+                <button id="assign-roles" class='box'>Assign roles</button>
+            </div>
         </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
+        <hr>
+        <div class="row">
+            <div class="col-6" id="roleholder"><strong id="role">Role unassigned</strong></div>
+            <div class="col-6">
+                <button id="hide-role" class='box'>Toggle</button>
+            </div>
         </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
+            <div class="col-6">
+                <div class='box grid-item'></div>
+            </div>
         </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-        <div class="col-6">
-          <div class='box grid-item'></div>
-        </div>
-      </div>
     </div>
 
-  </div>
+</div>
 
-  <!-- client side socket js -->
-  <script src='/socket.io/socket.io.js'></script>
-  <!-- jquery -->
-  <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-  <!-- bootstrap js -->
-  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
-  <!-- my js -->
-  <script src='home.js'></script>
+<!-- client side socket js -->
+<script src='/socket.io/socket.io.js'></script>
+<!-- jquery -->
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<!-- bootstrap js -->
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
+<!-- my js -->
+<script src='/home.js'></script>
 
 </body>
 
