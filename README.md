@@ -17,4 +17,4 @@ Feedback and pull requests welcome.
 
 [Chameleon](https://bigpotato.com/gb/games/the-chameleon) is a party game designed by [Big Potato Games](https://bigpotato.com/gb). 
 This is an unofficial fan project designed to complement the physical game, and is not endorsed in any way by the designer or publisher.
-This app was developed simply for fun and to educate myself - it is not intended for any commercial use.
+This app was developed simply for fun and to educate myself - it is not intended for commercial use.
